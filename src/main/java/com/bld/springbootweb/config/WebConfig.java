@@ -24,4 +24,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/public/");
         super.addResourceHandlers(registry);
     }
+
+
+    
 }
