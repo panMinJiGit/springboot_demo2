@@ -22,7 +22,6 @@ public class PageViewController {
 
     @RequestMapping("/layout_horizontal_sidebar_menu")
     public String layout_horizontal_sidebar_menu(){
-        System.out.println("-----------layout_horizontal_sidebar_menu-----------");
         return "layout_horizontal_sidebar_menu";
     }
 
