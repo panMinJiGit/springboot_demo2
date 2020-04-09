@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageViewController {
 
-    @RequestMapping("/test")
+    @RequestMapping("/login")
     public String login_view(){
-        return "login";
+        return "login_soft";
     }
 
     @RequestMapping("/index")
@@ -23,6 +23,11 @@ public class PageViewController {
     @RequestMapping("/layout_horizontal_sidebar_menu")
     public String layout_horizontal_sidebar_menu(){
         return "layout_horizontal_sidebar_menu";
+    }
+
+    @RequestMapping("/charts")
+    public String charts(){
+        return "charts";
     }
 
 }

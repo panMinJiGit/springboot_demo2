@@ -22,10 +22,10 @@ var Login = function () {
 
 	            messages: {
 	                username: {
-	                    required: "Username is required."
+	                    required: "请输入用户名."
 	                },
 	                password: {
-	                    required: "Password is required."
+	                    required: "请输入密码."
 	                }
 	            },
 
@@ -48,14 +48,38 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+					var username = $('#username').val().trim();
+					var password = $('#password').val().trim();
+					$.ajax({
+						type : "post",
+						url :  'http://localhost:8088/user/login',
+						dataType : "json",//后台返回值类型
+						//contentType: "application/json", //如果提交的是json数据类型，则必须有此参数,表示提交的数据类型 
+						async : false,//异步请求
+						data : {
+							"username" : username,
+							"password" : password,
+						},
+						success : function(data){
+							if(data.status == 200){
+								window.location.href="http://localhost:8088/index";
+							}else{
+								alert(data.msg)
+							}
+						},
+						error :function(){
+
+						}
+
+					});
+
 	            }
 	        });
 
 	        $('.login-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.login-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                   // window.location.href = "index.html";
 	                }
 	                return false;
 	            }
