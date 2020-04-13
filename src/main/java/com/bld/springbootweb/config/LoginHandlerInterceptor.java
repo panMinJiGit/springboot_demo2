@@ -31,12 +31,6 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
         System.out.println("loginUser:"+loginUser);
         //获取session
         HttpSession session = request.getSession(true);
-
-        /*if(loginUser == null && loginUser.equals("/error")){
-            response.sendRedirect("/extra_404_option1");
-            return false;
-        }*/
-
         if (loginUser == null || loginUser.equals(""))  {
             response.sendRedirect("/");
             return false;
